@@ -1,0 +1,120 @@
+<!--            JAYPEE UNIVERSITY OF ENGINEERING & TECHNOLOGY,GUNA
+                   WEB CALCULATOR WITH HTML,CSS AND JAVA-SCRIPT
+                  PROJECT SUBMITED BY-YASHASVI PARASHAR(211B358)
+                                   DARK MODE
+                  
+-->
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+      @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+ 
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   background-color: black;
+   font-family: "Montserrat", sans-serif;
+   outline: none;
+ }
+ .Container {
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ .Calculator {
+   padding: 15px;
+   border-radius: 10px;
+   box-shadow: 5px 5px 10px red, -5px -5px 10px  red;
+   display: grid;
+   grid-template-columns: repeat(4, 75px);
+ }
+ input {
+   grid-column: span 4;
+   width: 100%;
+   height: 150px;
+   box-shadow: inset 5px 5px 10px red, inset -5px -5px 10px red;
+   border: none;
+   border-radius: 10px;
+   color: rgb(70, 70, 70);
+   text-align: end;
+   font-size: 50px;
+   margin: auto;
+   margin-top: 20px;
+   margin-bottom: 15px;
+   padding: 10px;
+ }
+ button {
+   cursor: pointer;
+   text-align: center;
+   width: 60px;
+   height: 60px;
+   font-size: 17px;
+   display: grid;
+   place-content: center;
+   border: none;
+   border-radius: 50%;
+   color: rgb(70, 70, 70);
+   box-shadow: 5px 5px 10px black, -5px -5px 10px  red;
+   margin: 8px;
+ }
+ button:hover {
+   background:  red;
+ }
+ .Equal {
+   width: 132px;
+   border-radius: 10px;
+ }
+  </style>
+  <title>Basic Calculator</title>
+</head>
+<body>
+  <div class="Container">
+    <div class="Calculator">
+      <input type="text" placeholder="0" id="OutputScreen" />
+      <button onclick="Clear()">CL</button>
+      <button onclick="Delete()">DEL</button>
+      <button onclick="Display('%')">%</button>
+      <button onclick="Display('/')">/</button>
+      <button onclick="Display('7')">7</button>
+      <button onclick="Display('8')">8</button>
+      <button onclick="Display('9')">9</button>
+      <button onclick="Display('*')">*</button>
+      <button onclick="Display('4')">4</button>
+      <button onclick="Display('5')">5</button>
+      <button onclick="Display('6')">6</button>
+      <button onclick="Display('-')">-</button>
+      <button onclick="Display('1')">1</button>
+      <button onclick="Display('2')">2</button>
+      <button onclick="Display('3')">3</button>
+      <button onclick="Display('+')">+</button>
+      <button onclick="Display('0')">0</button>
+      <button onclick="Display('.')">.</button>
+      <button onclick="Calculate()" class="Equal">=</button>
+    </div>
+  </div>
+  <script>
+    let OutputScreen = document.getElementById("OutputScreen");
+    function Display(num) {
+      OutputScreen.value += num;
+    }
+    function Calculate() {
+      try {
+        OutputScreen.value = eval(OutputScreen.value);
+      } catch (error) {
+        alert("Invalid");
+      }
+    }
+    function Clear() {
+      OutputScreen.value = "";
+    }
+    function Delete() {
+      OutputScreen.value = OutputScreen.value.slice(0, -1);
+    }</script>
+</body>
+</html>
